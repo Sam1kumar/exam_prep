@@ -2,6 +2,7 @@ import 'package:exam_prep/app/app.dart';
 import 'package:exam_prep/const/app_colors.dart';
 import 'package:exam_prep/modules/common/widgets/button.dart';
 import 'package:exam_prep/modules/common/widgets/text_input.dart';
+import 'package:exam_prep/modules/login/test.dart';
 import 'package:exam_prep/routing/routing.gr.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,11 @@ class LoginAndRegisterPage extends StatefulWidget {
 
 class _LoginAndRegisterPageState extends State<LoginAndRegisterPage> {
   final _loginFormKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +44,18 @@ class _LoginAndRegisterPageState extends State<LoginAndRegisterPage> {
             ),
           ),
           Spacer(),
-          Button(onTap: () {}, title: "Login"),
+          Button(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return TestWidget();
+                }));
+              },
+              title: "Login"),
           const SizedBox(
             height: 10,
           ),
           InkWell(
-            onTap: () async{
+            onTap: () async {
               await appRouter.push(const RegisterationPageRoute());
             },
             child: Text(

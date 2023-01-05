@@ -13,6 +13,7 @@ class UserRepositoryImpl extends UserRepository {
   static const String prefsUserType = "APP_USER_TYPE";
   static const String prefsUserName = "APP_USER_NAME";
   static const String prefsLoggedInStatus = "APP_LOGGED_IN_STATUS";
+  static const String prefsTestDataList = "AP_TEST_DATA_LIST";
 
   @override
   String? get userName => appPrefsClient.getString(prefsUserName);
@@ -40,4 +41,12 @@ class UserRepositoryImpl extends UserRepository {
   @override
   UserType get userType =>
       getUserTypeFromInt(appPrefsClient.getInt(prefsUserType) ?? -1);
+
+  @override
+  List<String> get testDataList =>
+      appPrefsClient.getStringList(prefsTestDataList) ?? [];
+
+  @override
+  set testDataList(List<String> data) =>
+      appPrefsClient.setStringList(prefsTestDataList, data);
 }

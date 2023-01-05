@@ -40,9 +40,7 @@ class AppInjector {
     );
 
     /// DbHelper;
-    final appDb = AppDbImpl(
-      userRepository: locator(),
-    );
+    final appDb = AppDbImpl();
     await appDb.initialise();
     locator.registerSingleton<AppDb>(appDb);
   }

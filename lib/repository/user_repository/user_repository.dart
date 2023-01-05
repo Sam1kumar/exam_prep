@@ -16,4 +16,8 @@ abstract class UserRepository {
   set userType(UserType value);
 
   UserType get userType;
+
+  List<String> get testDataList;
+
+  set testDataList(List<String> data);
 }
